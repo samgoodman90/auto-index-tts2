@@ -1,5 +1,5 @@
 This is a Extension to work with the webui.py of the index-tts2 TTS Server. 
-It is a bit bare bones right now, but it works for me know. 
+It is a bit bare bones right now, but it works for me now. 
 
 ## Requirements
 
