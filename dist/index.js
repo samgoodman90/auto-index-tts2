@@ -194,7 +194,7 @@
     const ttsPipeline = (() => {
         let nextSeq = 0;
         let playSeq = 0;
-        const results = new Map(); // seq -> { url, vec }
+        const results = new Map(); // seq -> { url }
         let playing = false;
 
         async function enqueue(text) {
@@ -205,7 +205,7 @@
             // Fire POST ASAP (non-blocking)
             pushJob(text, hash).catch(err => {
                 console.error("[TTS-Queue] pushJob failed seq:", seq, err);
-                results.set(seq, { url: null, vec });
+                results.set(seq, { url: null });
                 tryStart();
             });
 
@@ -214,11 +214,11 @@
                 try {
                     const url = await awaitResult(hash);
                     console.log("[TTS-Queue] result ready seq:", seq, "url:", url);
-                    results.set(seq, { url, vec });
+                    results.set(seq, { url });
                     tryStart();
                 } catch (err) {
                     console.error("[TTS-Queue] awaitResult failed seq:", seq, err);
-                    results.set(seq, { url: null, vec });
+                    results.set(seq, { url: null });
                     tryStart();
                 }
             })();
