@@ -15,10 +15,16 @@ Just follow the install guide on the Github Page from index-tts and test it firs
 4. Upload/Drag in a reference voice and look for the POST Call in the Network tab
 5. Switch to the response Tab and copy the File Path:  /tmp/gradio/xxxxxxx/yyy.mp3
 <img width="2364" height="201" alt="image" src="https://github.com/user-attachments/assets/0699e5f4-8d71-4237-af97-25fe616247df" />
+
+
 6. Install this extension in your Silly Tavern
 <img width="751" height="149" alt="image" src="https://github.com/user-attachments/assets/08b0f40d-4473-4274-9966-87234d94f635" />
+
+
 7. Open the settings for this extension and set the URL of your indextt2 server (Same as step 1), copy the file path of the reference voice (step5) into reference file path, then test the extension using the test message (in your indextts logs you should see a generation start and hear the message right after)
 <img width="860" height="512" alt="image" src="https://github.com/user-attachments/assets/c68bb4d3-a765-4a86-a93b-50d923079a85" />
+
+
 8. Have fun trying out different emotion values and voices. 
 9. It should automatically generate and play all quoted parts of a response message after receiving a message from a character.
 
