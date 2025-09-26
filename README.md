@@ -1,5 +1,6 @@
-This is a Extension to work with the webui.py of the index-tts2 TTS Server. 
+This is a Silly Tavern Extension to work with the webui.py of the index-tts2 TTS Server. 
 It is a bit bare bones right now, but it works for me now. 
+Also this is my first Extension, so i might have done a few things in an unusual way.
 
 ## Requirements
 
