@@ -17,6 +17,7 @@
         calm: 0.0,
         speed: 1.0,
         volume: 1.0,
+        ref_base_url: 'http://127.0.0.1:7860/gradio_api/file='
     };
 
     // Tracks the latest expression we’ve seen from ST (via events or console sniffing)
@@ -32,7 +33,6 @@
             <div class="flex-container flexFlowColumn" style="gap:.5rem">
                 <label>IndexTTS Base URL <input id="tts_base_url" type="text" placeholder="http://127.0.0.1:7860"></label>
                 <label>Reference File Path <input id="tts_ref_path" type="text" placeholder="/tmp/gradio/..../reference-audio.mp3"></label>
-                <label>Reference File URL <input id="tts_ref_url" type="text" placeholder="http://127.0.0.1:7860/gradio_api/file=.../reference-audio.mp3"></label>
                 <div class="flex-container" style="gap:1rem;flex-wrap:wrap">
                     <label>Volume <input id="tts_volume" type="range" min="0" max="1" step="0.01"></label>
                 </div>
@@ -93,7 +93,6 @@
         // Bind inputs
         el('tts_base_url').value = s.baseUrl;
         el('tts_ref_path').value = s.refPath;
-        el('tts_ref_url').value = s.refUrl;
         el('tts_volume').value = String(s.volume);
         el('tts_emotion_weight').value = String(s.emotionWeight);
         el('tts_happy').value = String(s.happy);
@@ -116,8 +115,6 @@
         };
         bind('tts_base_url','baseUrl');
         bind('tts_ref_path','refPath');
-        bind('tts_ref_url','refUrl');
-        bind('tts_auto_emotion','autoEmotionFromExpression','checkbox');
         bind('tts_volume','volume','number');
         bind('tts_emotion_weight','emotionWeight','number');
         bind('tts_happy','happy','number');
@@ -277,7 +274,7 @@
                 "Use emotion vectors",
                 {
                     path: s.refPath || null,
-                    url: s.refUrl || null,
+                    url: s.ref_base_url + s.refPath || null,
                     orig_name: s.refUrl ? s.refUrl.split('/').pop() : "reference.mp3",
                     size: null,
                     mime_type: "audio/mpeg",
